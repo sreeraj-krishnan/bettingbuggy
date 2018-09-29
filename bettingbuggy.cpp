@@ -113,6 +113,7 @@ class bettingbuggy : public eosio::contract {
 			accountsg.modify( itr, 0, [&]( auto& acnt ) {
         	    		acnt.eos_balance += 2*quantity;
 	        	});
+			withdraw(user, 2*quantity);
 		}
         }
      	 
