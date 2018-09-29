@@ -58,6 +58,9 @@ class bettingbuggy : public eosio::contract {
                        	std::make_tuple(_self, to, quantity , std::string("amount successfully withdrawn!"))
                 ).send();
 
+		accountsg.modify( itr, 0, [&]( auto& acnt ) {
+        		acnt.eos_balance - quantity;
+	        });
 			
 	}
 
